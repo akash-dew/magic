@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      .loader{
+    background:#000 url('assets/images/ani.svg') no-repeat 50% 50%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    background-size: 40%;
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+    </style>
   </head>
   <body>
-    <!-- <div class="loader">
+    <div class="loader">
         
-      </div> -->
+      </div>
 
     <div id="fullpage">
       <div class="section">
@@ -45,7 +60,7 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             id="svg__02"
             class="lottie"
             data-animation-path="https://assets3.lottiefiles.com/private_files/lf30_twj6co60.json"
@@ -53,7 +68,10 @@
             data-rederer="svg"
             data-anim-loop="true"
             data-name="Lottie Animation"
-          ></div>
+          ></div> -->
+
+          <div
+            id="svg__02" class="lottie"></div>
         </div>
       </div>
       <div class="section new-sec">
@@ -192,7 +210,6 @@
 
         // Add a driver that we use to control our animations
         lax.addDriver("scrollY", function () {
-          ˀ;
           return window.scrollY;
         });
 
@@ -241,6 +258,35 @@
         autoplay:true,
         type   : 'loop',
       }).mount();
+
+
+
+
+
+
+   
+ 
+
+     const mainAnimEle = document.getElementById('svg__02');
+     let mainAnim = bodymovin.loadAnimation({
+        container: mainAnimEle, // the dom element that will contain the animation
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: 'https://assets3.lottiefiles.com/private_files/lf30_twj6co60.json', // the path to the animation json,
+        // onComplete:  console.log('done');
+      });
+
+      mainAnim.play();
+      mainAnim.playSegments(100,true)
+      let i = 0;
+
+      setInterval(function(){
+        mainAnim.goToAndPlay(280, true);
+        // console.log(mainAnim.())
+      },5000);
+
+
     </script>
   </body>
 </html>
