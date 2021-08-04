@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,300;0,500;1,500&display=swap');
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ul,ol{
+  list-style: none;
+}
+
+$font-family-primary:     'Barlow', sans-serif !default;
+$font-family-secondary:   'Poppins', sans-serif !default;
+$font-family-base:        $font-family-primary !default;
+$base-size: 16;
+//Function to convert px value into rem
+//You can replace rem with any other value you want (rem is most preferred value for web)
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+} 
+body{
+  font-family: $font-family-primary;
+}
+$base-font-size: size($base-size);
+.container{
+  max-width: size(1366);
+  margin: 0 auto;
+}
+@import "variable";
+@import "common";
+@import "style";
+@import "header";
+@import "index";
+@import "footer";
